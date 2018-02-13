@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="Description" content=""/>
     <meta name="keywords" content=""/>
-    <title>模板</title>
+    <title>登陆</title>
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/jquery.md5.js"></script>
     <link rel="stylesheet" href="/static/css/core.css"/>

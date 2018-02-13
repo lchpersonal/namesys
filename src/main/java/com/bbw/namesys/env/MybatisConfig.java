@@ -2,9 +2,11 @@ package com.bbw.namesys.env;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,12 +19,12 @@ import javax.sql.DataSource;
 public class MybatisConfig {
 
     @Bean
-    public DataSource createDataSource(){
+    public DataSource createDataSource(Environment env){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/namesys");
-        dataSource.setUsername("root");
-        dataSource.setPassword("000000");
+        dataSource.setDriverClassName(env.getProperty("driverClassName"));
+        dataSource.setUrl(env.getProperty("jdbc_url"));
+        dataSource.setUsername(env.getProperty("jdbc_username"));
+        dataSource.setPassword(env.getProperty("jdbc_password"));
         return dataSource;
     }
 
