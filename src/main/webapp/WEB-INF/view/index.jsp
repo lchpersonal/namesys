@@ -67,7 +67,7 @@
     <c:if test="${user.type > 0}">
         <tr>
             <td align="center">
-                <a href="/paving/namelist"  id="children" class=' hrefcss2 w200 bgred'>伞下主任</a>
+                <a href="javascript:alert('此功能暂不开放');"  id="children" class=' hrefcss2 w200 bgred'>伞下主任</a>
             </td>
         </tr>
     </c:if>
