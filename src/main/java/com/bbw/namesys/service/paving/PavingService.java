@@ -26,7 +26,7 @@ public class PavingService {
             return Results.accessdenied();
         }
         String newRecord =  record.replaceAll("<","&lt;").replaceAll(">","&gt;");
-        pavingMapper.addPavingRecord(nameInfoId, newRecord);
+        pavingMapper.addPavingRecord(nameInfoId, newRecord,username);
         return Results.success();
     }
 

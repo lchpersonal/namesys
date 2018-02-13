@@ -14,8 +14,10 @@ import java.util.List;
 public interface PavingMapper {
 
 
-    @Insert("insert into pavingrecord(nameInfoId,record,pavingTime) values(#{nameInfoId},#{record},now())")
-    void addPavingRecord(@Param("nameInfoId") int nameInfoId, @Param("record") String record);
+    @Insert("insert into pavingrecord(nameInfoId,username,record,pavingTime) values" +
+            "(#{nameInfoId},#{username},#{record},now())")
+    void addPavingRecord(@Param("nameInfoId") int nameInfoId, @Param("record") String record,
+                         @Param("username") String username);
 
     @Select("select * from pavingrecord where nameInfoId=#{nameInfoId} order by pavingTime desc")
     List<PavingRecord> select(@Param("nameInfoId") int nameInfoId);

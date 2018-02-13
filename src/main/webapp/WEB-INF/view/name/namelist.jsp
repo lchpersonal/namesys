@@ -26,14 +26,14 @@
     <a href="####" id="homepage" class="fr f18 m0 p0 dib red tdn">首页</a>
 </div>
 <div class="mt5" style="padding: 2px 0 5px 2px;background: #f7f0f4;">
-    <span class="f16">梯队:</span>
-    <select name="echelon" id="echelon">
+    <span class="f14">梯队:</span>
+    <select name="echelon" id="echelon" class="f12">
         <option value="0">全部</option>
         <option value="1" <c:if test="${echelon==1}">selected</c:if>>第一梯队</option>
         <option value="2" <c:if test="${echelon==2}">selected</c:if>>第二梯队</option>
         <option value="3" <c:if test="${echelon==3}">selected</c:if>>第三梯队</option>
     </select>
-    <span class="f16 ml5">关键字:</span>
+    <span class="f14 ml5">关键字:</span>
     <input type="text" id="keyword" class="w75" value="${keyword}"/>
     <input type="button" value="搜索" id="search" class="searchBtn"/>
 </div>

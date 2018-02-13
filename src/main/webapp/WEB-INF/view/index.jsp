@@ -26,9 +26,9 @@
             border: 1px solid #eee;
             text-decoration: none;
             cursor: auto;
-            line-height: 45px;
+            line-height: 40px;
             text-align: center;
-            margin: 0 0 30px 0px;
+            margin: 0 0 15px 0px;
         }
     </style>
 </head>
@@ -38,7 +38,12 @@
     <span class="mleft30">首页</span>
     <a href="javascript:void(0);"  id="logout" class="fr f18 m0 p0 dib red tdn">登出</a>
 </div>
-<table width="100%" align="center" class="mt100">
+<table width="100%" align="center" class="mt30">
+    <tr>
+        <td align="center">
+            <a href="/sts/selfinfo" id="selfinfo" class='hrefcss2 w200 bgred'>个人信息</a>
+        </td>
+    </tr>
     <tr>
         <td align="center">
             <a href="/jst/name/addname" id="addname" class='hrefcss2 w200 bgred'>添加名单</a>
@@ -59,6 +64,13 @@
             <a href="/paving/namelist"  id="paving" class=' hrefcss2 w200 bgred'>铺垫记录</a>
         </td>
     </tr>
+    <c:if test="${user.type > 0}">
+        <tr>
+            <td align="center">
+                <a href="/paving/namelist"  id="children" class=' hrefcss2 w200 bgred'>伞下主任</a>
+            </td>
+        </tr>
+    </c:if>
     <c:if test="${user.username=='chengli'}">
         <tr>
             <td align="center">
