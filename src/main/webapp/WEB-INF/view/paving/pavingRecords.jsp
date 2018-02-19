@@ -33,13 +33,8 @@
     <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">铺垫记录</span>
 </div>
-
-<div style="background: #f5f5f5;min-height: 100%" class="outerDiv">
-
-</div>
-<div class="loadMore f15" style="text-align: center;color:#888">加载更多</div>
-
-
+<div style="background: #f5f5f5;min-height: 100%" class="outerDiv"></div>
+<div class="loadMore f14" style="text-align: center;color:#888; margin-top: -10px">加载更多</div>
 
 <script type="text/javascript">
 $(function () {
@@ -79,7 +74,7 @@ $(function () {
         var that = $(this);
         var nameInfoId = that.attr("nameinfoid");
         var recordId = that.attr("recordid");
-        window.location.href = "/paving/editRecordPage.html?nameInfoId=" + nameInfoId + "&recordId=" + recordId;
+        location.href = "/paving/editRecordPage.html?nameInfoId=" + nameInfoId + "&recordId=" + recordId + "&flag=1";
     });
 });
 </script>

@@ -40,7 +40,9 @@ public class PavingController {
         return mv;
     }
 
-    /**查询所有铺垫记录，每次查詢十條*/
+    /**
+     * 查询所有铺垫记录，每次查詢十條
+     */
     @RequestMapping("/records.json")
     public Result pavingRecords(@RequestParam(defaultValue = "0") int curId,
                                 HttpServletRequest request) {
@@ -83,13 +85,15 @@ public class PavingController {
     }
 
     @RequestMapping("/editRecordPage")
-    public ModelAndView editPavingRecordPage(int recordId, int nameInfoId, HttpServletRequest request) {
+    public ModelAndView editPavingRecordPage(@RequestParam(defaultValue = "0") int flag,
+                                             int recordId, int nameInfoId, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("/paving/editPavingRecord");
         String username = SessionUtil.getUsername(request);
         Result result = pavingService.selectPavingRecord(recordId, username);
         mv.addObject("recordId", recordId);
         mv.addObject("nameInfoId", nameInfoId);
         mv.addObject("data", result);
+        mv.addObject("flag", flag);
         return mv;
     }
 

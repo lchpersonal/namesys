@@ -38,13 +38,12 @@
 <c:if test="${data.code==0}">${data.t.record}</c:if><c:if test="${data.code!=0}">${data.detail}</c:if>
 </textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
-<input type="button" value="修&nbsp;&nbsp;改" id="edit" recordId="${recordId}" class="fr w100 h25 mt10 mr10 bgred" style="border: none; color:#fff"/>
+<input type="button" value="修&nbsp;&nbsp;改" id="edit" recordId="${recordId}" flag="${flag}" class="fr w100 h25 mt10 mr10 bgred"
+       style="border: none; color:#fff"/>
 <script type="text/javascript">
     $(function () {
 
-        var recordId = ${recordId};
         var nameInfoId = ${nameInfoId};
-
         $("#edit").click(function () {
             var record = $(".pavingReocrd").val();
             if (record == "" || $.trim(record) == " ") {
@@ -52,9 +51,14 @@
                 return;
             }
             var recordId = $(this).attr("recordId");
-            $.post("/paving/editRecord.json", {'record': record,'id':recordId}, function (data) {
+            var flag = $(this).attr("flag");
+            $.post("/paving/editRecord.json", {'record': record, 'id': recordId}, function (data) {
                 if (data.result.code == 0) {
-                    window.location.href = "/paving/record.html?id=" + nameInfoId;
+                    if (flag == 1) {
+                        location.href = "/jst/paving/pavingRecords";
+                    } else {
+                        location.href = "/paving/record.html?id=" + nameInfoId;
+                    }
                 } else {
                     $("#prompt").text(data.result.detail);
                 }
