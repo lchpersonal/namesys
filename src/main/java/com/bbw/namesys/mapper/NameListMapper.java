@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.*;
 import org.w3c.dom.NameList;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface NameListMapper {
@@ -37,4 +38,7 @@ public interface NameListMapper {
 
     @Select("select id,name from namedetailinfo where id = #{id} and username = #{username}")
     NameInfo selectNameInfo(@Param("id") int id, @Param("username") String username);
+
+    @SelectProvider(type = NameListProvider.class, method = "selectNameInfosSql")
+    List<NameInfo> selectNameInfos(@Param("ids") List<Integer> ids);
 }

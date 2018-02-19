@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.jdbc.SQL;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -93,5 +94,11 @@ public class NameListProvider {
         sql = String.format(sql, echelon, username, idStr);
         return sql;
 
+    }
+
+    public static String selectNameInfosSql(Map<String, Object> params){
+        List<Integer> ids= (List<Integer>) params.get("ids");
+        String sql = "select id,name from namedetailinfo where id in (%s) ";
+        return String.format(sql, StringUtils.join(ids, ","));
     }
 }

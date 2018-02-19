@@ -22,6 +22,9 @@ public interface PavingMapper {
     @Select("select * from pavingrecord where nameInfoId=#{nameInfoId} order by pavingTime desc")
     List<PavingRecord> select(@Param("nameInfoId") int nameInfoId);
 
+    @Select("select * from pavingrecord where username=#{username} and id < #{curId} order by id desc limit 10")
+    List<PavingRecord> selectByUsername(@Param("username") String username, @Param("curId") int curId);
+
     @Update("update pavingrecord set record = #{record} where id = #{nameInfoId}")
     void editPavingRecord(@Param("nameInfoId") int nameInfoId, @Param("record") String record);
 

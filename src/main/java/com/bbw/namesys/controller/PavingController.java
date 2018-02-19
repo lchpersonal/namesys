@@ -2,8 +2,11 @@ package com.bbw.namesys.controller;
 
 import com.bbw.namesys.base.Result;
 import com.bbw.namesys.base.Results;
+import com.bbw.namesys.service.namelist.NameInfo;
 import com.bbw.namesys.service.namelist.NameInfoService;
+import com.bbw.namesys.service.paving.PavingRecord;
 import com.bbw.namesys.service.paving.PavingService;
+import com.bbw.namesys.service.paving.VPavingRecord;
 import com.bbw.namesys.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 铺垫相关
@@ -25,23 +32,36 @@ public class PavingController {
     @Autowired
     private PavingService pavingService;
 
-    @RequestMapping("namelist")
-    public ModelAndView toPavingNameList(@RequestParam(defaultValue = "0") int echelon,
-                                         String keyword, HttpServletRequest request) {
-        ModelAndView mv = new ModelAndView("/paving/pavingNamelist");
-        String username = SessionUtil.getUsername(request);
-        mv.addObject("data", Results.of(nameInfoService.select(username, echelon, keyword)));
-        mv.addObject("keyword", keyword);
-        mv.addObject("echelon", echelon);
-        return mv;
-    }
-
     @RequestMapping("/record")
     public ModelAndView pavingRecord(int id) {
         ModelAndView mv = new ModelAndView("/paving/pavingRecord");
         mv.addObject("data", Results.of(pavingService.select(id)));
         mv.addObject("id", id);
         return mv;
+    }
+
+    /**查询所有铺垫记录，每次查詢十條*/
+    @RequestMapping("/records.json")
+    public Result pavingRecords(@RequestParam(defaultValue = "0") int curId,
+                                HttpServletRequest request) {
+        String username = SessionUtil.getUsername(request);
+        if (curId == 0) {
+            curId = Integer.MAX_VALUE;
+        }
+        List<PavingRecord> pavingRecords = pavingService.selectByUsername(username, curId);
+        if (pavingRecords.isEmpty()) {
+            return Results.success();
+        }
+        List<VPavingRecord> vPavingRecords = new ArrayList<>();
+        List<Integer> nameInfoIds = pavingRecords.stream().map(PavingRecord::getNameInfoId).collect(Collectors.toList());
+        Map<Integer, NameInfo> map = nameInfoService.selectNameInfosMap(nameInfoIds);
+        for (PavingRecord pavingRecord : pavingRecords) {
+            VPavingRecord vPavingRecord = new VPavingRecord();
+            vPavingRecord.setPavingRecord(pavingRecord);
+            vPavingRecord.setNameInfo(map.get(pavingRecord.getNameInfoId()));
+            vPavingRecords.add(vPavingRecord);
+        }
+        return Results.of(vPavingRecords);
     }
 
     @RequestMapping("/addRecordPage")
@@ -55,7 +75,7 @@ public class PavingController {
     public Result addPavingRecord(int id, String record, HttpServletRequest request) {
         try {
             String username = SessionUtil.getUsername(request);
-           return  pavingService.addPavingRecord(id, record, username);
+            return pavingService.addPavingRecord(id, record, username);
         } catch (Exception e) {
             e.printStackTrace();
             return Results.exception();
@@ -77,7 +97,7 @@ public class PavingController {
     public Result editPavingRecord(int id, String record, HttpServletRequest request) {
         try {
             String username = SessionUtil.getUsername(request);
-           return  pavingService.editPavingRecord(id, record, username);
+            return pavingService.editPavingRecord(id, record, username);
         } catch (Exception e) {
             e.printStackTrace();
             return Results.exception();

@@ -32,12 +32,21 @@ public class PavingService {
 
     public List<PavingRecord> select(int nameInfoId) {
         List<PavingRecord> records = pavingMapper.select(nameInfoId);
-        for (PavingRecord record : records) {
-            if(StringUtils.isNotBlank(record.getRecord())){
-                record.setRecord(record.getRecord().replaceAll("\r|\n","<br/>"));
+        return this.trans(records);
+    }
+
+    public List<PavingRecord> selectByUsername(String username, int curId) {
+        List<PavingRecord> records = pavingMapper.selectByUsername(username, curId);
+        return this.trans(records);
+    }
+
+    private List<PavingRecord> trans(List<PavingRecord> pavingRecords){
+        for (PavingRecord record : pavingRecords) {
+            if (StringUtils.isNotBlank(record.getRecord())) {
+                record.setRecord(record.getRecord().replaceAll("\r|\n", "<br/>"));
             }
         }
-        return records;
+        return pavingRecords;
     }
 
     public Result editPavingRecord(int recordId, String record, String username) {

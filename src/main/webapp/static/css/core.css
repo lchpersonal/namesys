@@ -38,7 +38,13 @@
 .mr5{margin-right: 5px}
 .mr10{margin-right: 10px}
 .mr20{margin-right: 20px}
-
+.edit{
+    cursor: pointer;
+    font-size: 12px;
+    display: block;
+    text-decoration: none;
+    color: #888;
+}
 .hrefcss {
     font-size: 12px;
     color: #fff;

@@ -1,11 +1,14 @@
 package com.bbw.namesys.service.paving;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class PavingRecord {
     private int id;
     private int nameInfoId;
     private String record;
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm")
     private Date pavingTime;
     private Date updateTime;
 

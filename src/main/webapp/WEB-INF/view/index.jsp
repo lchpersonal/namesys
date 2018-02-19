@@ -61,7 +61,7 @@
     </tr>
     <tr>
         <td align="center">
-            <a href="/paving/namelist"  id="paving" class=' hrefcss2 w200 bgred'>铺垫记录</a>
+            <a href="/jst/paving/pavingRecords"  id="paving" class=' hrefcss2 w200 bgred'>铺垫记录</a>
         </td>
     </tr>
     <c:if test="${user.type > 0}">

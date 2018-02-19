@@ -77,6 +77,8 @@
     <h class="f15 fl">基本信息</h>
     <input type="button" value="编辑" id="btn" status="1" class="fr w50 h20 bgred"
            style="border: none; color:#fff;margin-bottom: 3px"/>
+    <input type="button" value="铺垫" id="paving"  nameInfoId="${data.t.id}" class="fr w50 h20 bgred mr10"
+           style="border: none; color:#fff;margin-bottom: 3px"/>
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">姓&nbsp;&nbsp;名</td>
@@ -272,6 +274,11 @@
             }
         });
     }
+
+    $("#paving").click(function (data) {
+        var id = $(this).attr("nameInfoId");
+        window.location.href = "/paving/record.html?id=" + id;
+    });
 
 </script>
 </body>

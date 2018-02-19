@@ -18,15 +18,6 @@
     <meta name="keywords" content=""/>
     <script src="/static/js/jquery.min.js"></script>
     <link rel="stylesheet" href="/static/css/core.css"/>
-    <style type="text/css">
-        .edit{
-            cursor: pointer;
-            font-size: 12px;
-            display: block;
-            text-decoration: none;
-            color: #888;
-        }
-    </style>
 </head>
 <body class="m0">
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2 mb10">

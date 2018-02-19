@@ -4,6 +4,7 @@ import com.bbw.namesys.base.Result;
 import com.bbw.namesys.base.Results;
 import com.bbw.namesys.mapper.NameListMapper;
 import com.bbw.namesys.utils.JsonUtil;
+import com.sun.org.apache.bcel.internal.generic.INEG;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class NameInfoService {
@@ -30,6 +32,15 @@ public class NameInfoService {
 
     public NameInfo selectNameInfo( int id, String username) {
         return nameListMapper.selectNameInfo(id,username);
+    }
+
+    public List<NameInfo> selectNameInfos(List<Integer> ids) {
+        return nameListMapper.selectNameInfos(ids);
+    }
+
+    public Map<Integer, NameInfo> selectNameInfosMap(List<Integer> ids) {
+        List<NameInfo> nameInfos =this.selectNameInfos(ids);
+        return nameInfos.stream().collect(Collectors.toMap(NameInfo::getId, nameInfo -> nameInfo));
     }
 
 
