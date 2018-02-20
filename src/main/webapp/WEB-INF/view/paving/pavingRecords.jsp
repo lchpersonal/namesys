@@ -32,9 +32,10 @@
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2 mb10">
     <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">铺垫记录</span>
+    <a href="####" id="homepage" class="fr f18 m0 p0 dib red tdn">首页</a>
 </div>
 <div style="background: #f5f5f5;min-height: 100%" class="outerDiv"></div>
-<div class="loadMore f14" style="text-align: center;color:#888; margin-top: -10px">加载更多</div>
+<div class="loadMore f14" style="text-align: center;color:#888; margin-top: -10px;padding:5px 0 5px 0">加载更多</div>
 
 <script type="text/javascript">
 $(function () {
