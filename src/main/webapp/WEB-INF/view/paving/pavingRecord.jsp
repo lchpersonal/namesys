@@ -21,10 +21,9 @@
 </head>
 <body class="m0">
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2 mb10">
-    <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
+    <a href="/name/detail.html?id=${id}" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">铺垫记录</span>
     <input type="button" value="添加铺垫记录" id="add"  nameinfoid="${id}" class="fr f12 w90 h20 bgred mr10" style="border: none; color:#fff;margin-bottom: 3px"/>
-    <input type="button" value="名单列表" id="back2list"  nameinfoid="${id}" class="fr f12 w70 h20 bgred mr10" style="border: none; color:#fff;margin-bottom: 3px"/>
 </div>
 
 <div style="background: #f5f5f5;min-height: 100%">
@@ -65,10 +64,6 @@ $(function () {
        var nameInfoId =  that.attr("nameInfoId");
        var recordId = that.attr("recordId");
        window.location.href = "/paving/editRecordPage.html?nameInfoId=" + nameInfoId + "&recordId=" + recordId;
-    });
-
-    $("#back2list").click(function () {
-        location.href = "/name/select";
     });
 });
 </script>

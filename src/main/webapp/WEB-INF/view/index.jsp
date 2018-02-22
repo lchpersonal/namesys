@@ -70,6 +70,11 @@
                 <a href="javascript:alert('此功能暂不开放');"  id="children" class=' hrefcss2 w200 bgred'>伞下主任</a>
             </td>
         </tr>
+        <tr>
+            <td align="center">
+                <a href="/jst/interactive/res"  id="interactiveres" class=' hrefcss2 w200 bgred'>互动资源</a>
+            </td>
+        </tr>
     </c:if>
     <c:if test="${user.username=='chengli'}">
         <tr>

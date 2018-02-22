@@ -30,7 +30,7 @@
 <!--對所有人的鋪墊記錄-->
 <body class="m0">
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2 mb10">
-    <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
+    <a href="/" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">铺垫记录</span>
     <a href="####" id="homepage" class="fr f18 m0 p0 dib red tdn">首页</a>
 </div>

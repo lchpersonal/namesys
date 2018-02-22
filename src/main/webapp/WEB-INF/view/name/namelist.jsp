@@ -21,7 +21,7 @@
 </head>
 <body>
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2">
-    <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
+    <a href="/" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">名单列表</span>
     <a href="####" id="homepage" class="fr f18 m0 p0 dib red tdn">首页</a>
 </div>

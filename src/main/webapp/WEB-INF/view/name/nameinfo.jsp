@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="Description" content=""/>
     <meta name="keywords" content=""/>
-    <title>模板</title>
     <script src="/static/js/jquery.min.js"></script>
     <link rel="stylesheet" href="/static/css/core.css"/>
     <style type="text/css">
@@ -65,7 +64,7 @@
 </head>
 <body>
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2">
-    <a href="javascript:history.back();"  id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
+    <a href="/name/select"  id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">详细信息</span>
     <a href="####" id="homepage" class="fr f18 m0 p0 dib red tdn">首页</a>
 </div>

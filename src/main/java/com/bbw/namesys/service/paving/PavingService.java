@@ -5,6 +5,7 @@ import com.bbw.namesys.base.Results;
 import com.bbw.namesys.mapper.PavingMapper;
 import com.bbw.namesys.service.namelist.NameInfo;
 import com.bbw.namesys.service.namelist.NameInfoService;
+import com.bbw.namesys.utils.HtmlUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class PavingService {
         if (info == null) {
             return Results.accessdenied();
         }
-        String newRecord =  record.replaceAll("<","&lt;").replaceAll(">","&gt;");
+        String newRecord = HtmlUtil.htmlTagTrans(record);
         pavingMapper.addPavingRecord(nameInfoId, newRecord,username);
         return Results.success();
     }
@@ -40,10 +41,10 @@ public class PavingService {
         return this.trans(records);
     }
 
-    private List<PavingRecord> trans(List<PavingRecord> pavingRecords){
+    private List<PavingRecord> trans(List<PavingRecord> pavingRecords) {
         for (PavingRecord record : pavingRecords) {
             if (StringUtils.isNotBlank(record.getRecord())) {
-                record.setRecord(record.getRecord().replaceAll("\r|\n", "<br/>"));
+                record.setRecord(HtmlUtil.db2Html(record.getRecord()));
             }
         }
         return pavingRecords;
