@@ -28,6 +28,23 @@
             margin-bottom: 0px;
             color: #333;
         }
+
+        em {
+            color: red;
+            font-style: normal;
+        }
+
+        input::-webkit-input-placeholder {
+            font-size: 12px;
+        }
+
+        input:-ms-input-placeholder {
+            font-size: 12px;
+        }
+
+        input::-moz-placeholder {
+            font-size: 12px;
+        }
     </style>
 </head>
 <!--對所有人的鋪墊記錄-->
@@ -39,7 +56,7 @@
 </div>
 <div class="mt5" style="padding: 2px 0 5px 2px;background: #f7f0f4;">
     <span class="f14 ml5">关键字:</span>
-    <input type="text" id="keyword" style="width: 200px" value="${keyword}"/>
+    <input type="text" id="keyword" placeholder="多个关键词实例：图|视频" style="width: 200px" value="${keyword}"/>
     <input type="button" value="搜索" id="search" class="searchBtn"/>
 </div>
 <div style="background: #f5f5f5;min-height: 100%" class="outerDiv"></div>
@@ -51,6 +68,14 @@
         var change = false;
         var oldKey = "";
 
+        function highlight(content, keys) {
+            if (keys == "" || keys == undefined) {
+                return content;
+            }
+            var reg = new RegExp('(' + keys + ')', 'g');
+            return content.replace(reg, "<em>$1</em>");
+        }
+
         function getData(maxId, keyword) {
             $.post("/interactive/getByKeys.json", {curId: maxId, keyword: keyword}, function (data) {
                 if (data.result.code == 0) {
@@ -60,11 +85,12 @@
                     if (data.result.t != null) {
                         for (var i = 0; i < data.result.t.length; i++) {
                             obj = data.result.t[i];
+                            var info = highlight(obj.info, keyword);
                             htm += '<div class="mb10 divs">\
                             <p class="f12 mb10 p0 clearfix" style="margin-top: 0px;color: #888">\
                                 <a href="javascript:void(0);" class="edit fr mr5" infoid="' + obj.id + '">编辑</a>\
                             </p>\
-                            <p class="f14 p0 ps">' + obj.info + '</p>\
+                            <p class="f14 p0 ps">' + info + '</p>\
                         </div>';
                         }
                         curId = obj.id;
@@ -78,12 +104,15 @@
                         $(".loadMore").css("display", "none");
                     }
                     oldKey = keyword;
+                } else {
+                    alert(data.result.detail);
                 }
             });
         }
 
         $("#search").click(function () {
             var keys = $.trim($("#keyword").val());
+
             if (typeof keys != "undefined" && keys != null && keys != "") {
                 var reg = new RegExp("[|\u4E00-\u9FFF]+", "g");
                 if (!reg.test(keys)) {

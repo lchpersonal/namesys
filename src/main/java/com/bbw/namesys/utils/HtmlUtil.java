@@ -18,4 +18,11 @@ public class HtmlUtil {
         }
         return content.replaceAll("\r\n|\r|\n", "<br/>");
     }
+
+    public static String highlight(String content, String[] keys) {
+        if (StringUtils.isBlank(content)) {
+            return content;
+        }
+        return content.replaceAll("\r\n|\r|\n", "<br/>");
+    }
 }

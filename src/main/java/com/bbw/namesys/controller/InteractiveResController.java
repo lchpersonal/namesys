@@ -21,6 +21,12 @@ public class InteractiveResController {
     public Result getRes(@RequestParam(defaultValue = "0") int curId, String keyword) {
         String[] keys = null;
         if (!StringUtils.isBlank(keyword)) {
+            if (keyword.startsWith("|") || keyword.endsWith("|")) {
+                return Results.error("搜索字符串不能以|开头或者结尾");
+            }
+            if (keyword.contains("||")) {
+                return Results.error("搜索关键词不能含有两个或两个以上的|");
+            }
             keys = keyword.split("\\|");
         }
         return interactiveResService.select(curId, keys);

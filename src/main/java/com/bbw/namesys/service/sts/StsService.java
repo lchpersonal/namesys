@@ -29,7 +29,7 @@ public class StsService {
             }
         });
         selfStsInfo.setPavingWeekCount(stsMapper.selectPavingStsInfo(username, 7));
-        selfStsInfo.setPavingWeekCount(stsMapper.selectPavingStsInfo(username, 30));
+        selfStsInfo.setPavingMonthCount(stsMapper.selectPavingStsInfo(username, 30));
         selfStsInfo.setPavingCount(stsMapper.selectPavingCount(username));
         return Results.of(selfStsInfo);
     }
