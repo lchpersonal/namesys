@@ -64,7 +64,7 @@
 </head>
 <body>
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2">
-    <a href="/name/select"  id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
+    <a href="/name/select" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">详细信息</span>
     <a href="####" id="homepage" class="fr f18 m0 p0 dib red tdn">首页</a>
 </div>
@@ -76,7 +76,7 @@
     <h class="f15 fl">基本信息</h>
     <input type="button" value="编辑" id="btn" status="1" class="fr w50 h20 bgred"
            style="border: none; color:#fff;margin-bottom: 3px"/>
-    <input type="button" value="铺垫" id="paving"  nameInfoId="${data.t.id}" class="fr w50 h20 bgred mr10"
+    <input type="button" value="铺垫" id="paving" nameInfoId="${data.t.id}" class="fr w50 h20 bgred mr10"
            style="border: none; color:#fff;margin-bottom: 3px"/>
     <table width="100%" class="t">
         <tr class="a1">
@@ -233,6 +233,36 @@
         "character", "policyConcern", "hobby", "specialty", "topicOfLike", "dream",
         "concept", "loveReading", "reasonOfInvite", "others"];
 
+    var attrEle = {
+        nativePlace: {name: '籍贯', len: 20},
+        workplace: {name: '工作地', len: 20},
+        health: {name: '健康状况', len: 150},
+        education: {name: '文化程度', len: 100},
+        characteristics: {name: '体貌特征', len: 100},
+        relationship: {name: '与我关系', len: 100},
+        coexistenceMode: {name: '相处模式', len: 500},
+        evaluateMe: {name: '如何评价我', len: 100},
+        workExperience: {name: '工作经历', len: 1000},
+        lifeExperience: {name: '人生阅历', len: 1000},
+        income: {name: '收入情况', len: 100},
+        entrepreneurship: {name: '支持经商创业', len: 100},
+        vacations: {name: '休假情况', len: 100},
+        maritalStatus: {name: '婚姻状况', len: 100},
+        memberOfFamily: {name: '家庭成员', len: 100},
+        familyStatus: {name: '家庭地位', len: 100},
+        familyIncomeAndSupport: {name: '家庭收入与支出', len: 200},
+        character: {name: '个人性格', len: 200},
+        policyConcern: {name: '政策关注度', len: 100},
+        hobby: {name: '兴趣爱好', len: 100},
+        specialty: {name: '特长', len: 100},
+        topicOfLike: {name: '喜欢的话题', len: 100},
+        dream: {name: '梦想', len: 100},
+        concept: {name: '思想观念', len: 100},
+        loveReading: {name: '是否爱看书', len: 100},
+        reasonOfInvite: {name: '邀约理由', len: 200},
+        others: {name: '其他', len: 500}
+    };
+
     var lock = false;
     $("#btn").click(function () {
         if (lock) {
@@ -250,7 +280,19 @@
             that.val("保存");
             $("#name").focus();
         } else {
-            var params ={};
+            //校验字符个数
+            for (var i = 0; i < curAttrs.length; i++) {
+                var obj = attrEle[curAttrs[i]];
+                if (obj != undefined) {
+                    var curEle = $("#" + curAttrs[i]);
+                    if (curEle.text().length > obj.len) {
+                        alert(obj.name + "字段字数不能超过" + obj.len + "个");
+                        return;
+                    }
+                }
+            }
+
+            var params = {};
             for (var i = 0; i < curAttrs.length; i++) {
                 var curEle = $("#" + curAttrs[i]);
                 params[curAttrs[i]] = curEle.text();

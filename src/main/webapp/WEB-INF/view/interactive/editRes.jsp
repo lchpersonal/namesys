@@ -32,20 +32,32 @@
     <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">编辑互动资料</span>
 </div>
-<h class="f15">请修改互动资料：</h>
-<textarea rows="12" placeholder="请修改互动资料……" class="interactiveRes">
+<h class="f15">请修改互动资料：
+    <span class="fr mr10 f12 wordcountwrapper" style="color:red;display: none"><span class="wordcount">0</span>/800</span>
+</h>
+<textarea rows="12" placeholder="请修改互动资料……" class="interactiveRes" onkeyup="checkNumber()">
 <c:if test="${result.code==0}">${result.t.info}</c:if><c:if test="${result.code!=0}">${data.detail}</c:if>
 </textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
 <input type="button" value="修&nbsp;&nbsp;改" id="edit" infoid="${result.t.id}" class="fr w100 h25 mt10 mr10 bgred"
        style="border: none; color:#fff"/>
 <script type="text/javascript">
-    $(function () {
+    function checkNumber() {
+        var content = $(".interactiveRes").val();
+        $(".wordcount").html(content.length);
+        $(".wordcountwrapper").fadeIn();
+    }
 
+
+    $(function () {
         $("#edit").click(function () {
             var info = $(".interactiveRes").val();
             if (info == "" || $.trim(info) == " ") {
                 $("#prompt").text("互动资源不能为空~");
+                return;
+            }
+            if (info.length > 800) {
+                $("#prompt").text("最多800字");
                 return;
             }
             var infoid = $(this).attr("infoid");

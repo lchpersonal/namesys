@@ -32,11 +32,18 @@
     <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">增加互动资源</span>
 </div>
-<h class="f15">请输入互动资源：</h>
-<textarea rows="12" placeholder="请输入互动资源……" class="interactiveRes"></textarea>
+<h class="f15">请输入互动资源：
+    <span class="fr mr10 f12" style="color:red"><span class="wordcount">0</span>/800</span>
+</h>
+<textarea rows="12" placeholder="请输入互动资源……" class="interactiveRes" onkeyup="checkNumber()"></textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
 <input type="button" value="添&nbsp;&nbsp;加" id="add" class="fr w100 h25 mt10 mr10 bgred" style="border: none; color:#fff"/>
 <script type="text/javascript">
+    function checkNumber() {
+        var content =  $(".interactiveRes").val();
+        $(".wordcount").html(content.length);
+    }
+
     $(function () {
         $(".interactiveRes").focus();
 
@@ -45,6 +52,12 @@
             if (record == "" || $.trim(record) == " ") {
                 $("#prompt").text("互动信息不能为空~");
                 return;
+            }
+            var content =  $(".interactiveRes").val();
+            var count = content.length;
+            if (count > 800) {
+                $("#prompt").text("不能超过800字");
+                return ;
             }
             $.post("/interactive/add.json", {'info': record}, function (data) {
                 if (data.result.code == 0) {

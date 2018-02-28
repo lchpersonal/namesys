@@ -49,6 +49,10 @@
                 $("#prompt").text("铺垫记录不能为空~");
                 return;
             }
+            if (record.length > 2000) {
+                $("#prompt").text("铺垫记录最多2000字，当前输入字数:" + record.length);
+                return ;
+            }
             var recordId = $(this).attr("recordId");
             var flag = $(this).attr("flag");
             $.post("/paving/editRecord.json", {'record': record, 'id': recordId}, function (data) {
