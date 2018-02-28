@@ -112,7 +112,7 @@
 
         $("#search").click(function () {
             var keys = $.trim($("#keyword").val());
-
+            keys = keys.replace(/｜/g, "|");
             if (typeof keys != "undefined" && keys != null && keys != "") {
                 var reg = new RegExp("[|\u4E00-\u9FFF]+", "g");
                 if (!reg.test(keys)) {
