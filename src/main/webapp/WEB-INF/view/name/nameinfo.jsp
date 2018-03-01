@@ -81,7 +81,7 @@
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">姓&nbsp;&nbsp;名</td>
-            <td id="name">${data.t.name}</td>
+            <td id="name" class="ip">${data.t.name}</td>
         </tr>
         <tr>
             <td class="tdl">性&nbsp;&nbsp;别</td>
@@ -99,23 +99,23 @@
         </tr>
         <tr>
             <td class="tdl">籍&nbsp;&nbsp;贯</td>
-            <td id="nativePlace">${data.t.nativePlace}</td>
+            <td id="nativePlace" class="ip">${data.t.nativePlace}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">工作地</td>
-            <td id="workplace">${data.t.workplace}</td>
+            <td id="workplace" class="ip">${data.t.workplace}</td>
         </tr>
         <tr>
             <td class="tdl">健康状况</td>
-            <td id="health">${data.t.health}</td>
+            <td id="health" class="ip">${data.t.health}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">文化程度</td>
-            <td id="education">${data.t.education}</td>
+            <td id="education" class="ip">${data.t.education}</td>
         </tr>
         <tr>
             <td class="tdl">体貌特征</td>
-            <td id="characteristics">${data.t.characteristics}</td>
+            <td id="characteristics" class="ip">${data.t.characteristics}</td>
         </tr>
     </table>
 
@@ -123,15 +123,15 @@
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">关&nbsp;&nbsp;系</td>
-            <td id="relationship">${data.t.relationship}</td>
+            <td id="relationship" class="ip">${data.t.relationship}</td>
         </tr>
         <tr>
             <td class="tdl">相处模式</td>
-            <td id="coexistenceMode">${data.t.coexistenceMode}</td>
+            <td id="coexistenceMode" class="ip">${data.t.coexistenceMode}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">对我评价</td>
-            <td id="evaluateMe">${data.t.evaluateMe}</td>
+            <td id="evaluateMe" class="ip">${data.t.evaluateMe}</td>
         </tr>
     </table>
 
@@ -139,23 +139,23 @@
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">工作经历</td>
-            <td id="workExperience">${data.t.workExperience}</td>
+            <td id="workExperience" class="ip">${data.t.workExperience}</td>
         </tr>
         <tr>
             <td class="tdl">人生阅历</td>
-            <td id="lifeExperience">${data.t.lifeExperience}</td>
+            <td id="lifeExperience" class="ip">${data.t.lifeExperience}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">收入情况</td>
-            <td id="income">${data.t.income}</td>
+            <td id="income" class="ip">${data.t.income}</td>
         </tr>
         <tr>
             <td class="tdl">经商创业</td>
-            <td id="entrepreneurship">${data.t.entrepreneurship}</td>
+            <td id="entrepreneurship" class="ip">${data.t.entrepreneurship}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">休假情况</td>
-            <td id="vacations">${data.t.vacations}</td>
+            <td id="vacations" class="ip">${data.t.vacations}</td>
         </tr>
     </table>
 
@@ -163,22 +163,22 @@
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">婚姻状况</td>
-            <td id="maritalStatus">${data.t.maritalStatus}</td>
+            <td id="maritalStatus" class="ip">${data.t.maritalStatus}</td>
         </tr>
     </table>
     <h class="f15">家庭情况</h>
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">家庭成员</td>
-            <td id="memberOfFamily">${data.t.memberOfFamily}</td>
+            <td id="memberOfFamily" class="ip">${data.t.memberOfFamily}</td>
         </tr>
         <tr>
             <td class="tdl">家庭地位</td>
-            <td id="familyStatus">${data.t.familyStatus}</td>
+            <td id="familyStatus" class="ip">${data.t.familyStatus}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">收入支出</td>
-            <td id="familyIncomeAndSupport">${data.t.familyIncomeAndSupport}</td>
+            <td id="familyIncomeAndSupport" class="ip">${data.t.familyIncomeAndSupport}</td>
         </tr>
     </table>
 
@@ -186,43 +186,44 @@
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">性格特点</td>
-            <td id="character">${data.t.character}</td>
+            <td id="character" class="ip">${data.t.character}</td>
         </tr>
         <tr>
             <td class="tdl">政策关注</td>
-            <td id="policyConcern">${data.t.policyConcern}</td>
+            <td id="policyConcern" class="ip">${data.t.policyConcern}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">兴趣爱好</td>
-            <td id="hobby">${data.t.hobby}</td>
+            <td id="hobby" class="ip">${data.t.hobby}</td>
         </tr>
         <tr>
             <td class="tdl">特&nbsp;&nbsp;长</td>
-            <td id="specialty">${data.t.specialty}</td>
+            <td id="specialty" class="ip">${data.t.specialty}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">喜欢话题</td>
-            <td id="topicOfLike">${data.t.topicOfLike}</td>
+            <td id="topicOfLike" class="ip">${data.t.topicOfLike}</td>
         </tr>
         <tr>
             <td class="tdl">有无梦想</td>
-            <td id="dream">${data.t.dream}</td>
+            <td id="dream" class="ip">${data.t.dream}</td>
         </tr>
         <tr class="a1">
             <td class="tdl">思想观念</td>
-            <td id="concept">${data.t.concept}</td>
+            <td id="concept" class="ip">${data.t.concept}</td>
         </tr>
         <tr>
             <td class="tdl">喜爱读书</td>
-            <td id="loveReading">${data.t.loveReading}</td>
+            <td id="loveReading" class="ip">${data.t.loveReading}</td>
         </tr>
     </table>
     <h class="f15">邀约理由</h>
-    <div class="divcss mb10" id="reasonOfInvite">${data.t.reasonOfInvite}</div>
+    <div class="divcss mb10 ip" id="reasonOfInvite">${data.t.reasonOfInvite}</div>
     <h class="f15">其他</h>
-    <div class="divcss" id="others">${data.t.others}</div>
+    <div class="divcss ip" id="others">${data.t.others}</div>
     <input type="text" value="${data.t.id}" id="id" disabled hidden/>
 </c:if>
+<span id="wordcountWrapper" class="f12 red" style="display: none;position: absolute"></span>
 
 <script type="text/javascript">
 
@@ -234,6 +235,7 @@
         "concept", "loveReading", "reasonOfInvite", "others"];
 
     var attrEle = {
+        name: {name: '姓名', len: 10},
         nativePlace: {name: '籍贯', len: 20},
         workplace: {name: '工作地', len: 20},
         health: {name: '健康状况', len: 150},
@@ -291,7 +293,6 @@
                     }
                 }
             }
-
             var params = {};
             for (var i = 0; i < curAttrs.length; i++) {
                 var curEle = $("#" + curAttrs[i]);
@@ -312,6 +313,8 @@
         $.post("/name/modify.json", params, function (data) {
             if (data.result.code == 0) {
                 location.reload();
+            } else {
+                alert("保存失败");
             }
         });
     }
@@ -321,6 +324,19 @@
         window.location.href = "/paving/record.html?id=" + id;
     });
 
+    $(".ip").keyup(function () {
+        var that = $(this);
+        var content = that.text();
+        var id = that.attr("id");
+        var obj = attrEle[id];
+        if (obj != undefined) {
+            $("#wordcountWrapper").html(content.length + "/" + obj.len);
+            var top = that.offset().top;
+            var h = that.height();
+            console.log(top + "," + h);
+            $("#wordcountWrapper").css({"top": top + h + 9, "right": 12, "display": "block"});
+        }
+    });
 </script>
 </body>
 </html>
