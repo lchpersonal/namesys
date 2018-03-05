@@ -35,29 +35,37 @@
 <h class="f15">请输入互动资源：
     <span class="fr mr10 f12" style="color:red"><span class="wordcount">0</span>/800</span>
 </h>
-<textarea rows="12" placeholder="请输入互动资源……" class="interactiveRes" onkeyup="checkNumber()"></textarea>
+<textarea rows="20" placeholder="请输入互动资源……" class="interactiveRes" onkeyup="checkNumber()"></textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
-<input type="button" value="添&nbsp;&nbsp;加" id="add" class="fr w100 h25 mt10 mr10 bgred" style="border: none; color:#fff"/>
+<input type="button" value="添&nbsp;&nbsp;加" id="add" class="fr w100 h25 mt10 mr10 bgred"
+       style="border: none; color:#fff"/>
 <script type="text/javascript">
     function checkNumber() {
-        var content =  $(".interactiveRes").val();
+        var content = $(".interactiveRes").val();
         $(".wordcount").html(content.length);
     }
 
     $(function () {
         $(".interactiveRes").focus();
 
+        lock = false;
         $("#add").click(function () {
+            if (lock) {
+                return;
+            }
+            lock = true;
             var record = $(".interactiveRes").val();
             if (record == "" || $.trim(record) == " ") {
                 $("#prompt").text("互动信息不能为空~");
+                lock = false;
                 return;
             }
-            var content =  $(".interactiveRes").val();
+            var content = $(".interactiveRes").val();
             var count = content.length;
             if (count > 800) {
                 $("#prompt").text("不能超过800字");
-                return ;
+                lock = false;
+                return;
             }
             $.post("/interactive/add.json", {'info': record}, function (data) {
                 if (data.result.code == 0) {
@@ -65,6 +73,7 @@
                 } else {
                     $("#prompt").text(data.result.detail);
                 }
+                lock = false;
             });
 
         });

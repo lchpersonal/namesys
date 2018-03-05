@@ -33,13 +33,19 @@
     <span class="mleft30">添加名单</span>
 </div>
 <h class="f15">请输入要添加的姓名：</h>
-<textarea rows="12" placeholder="批量添加用逗号隔开……" class="names" id="names"></textarea>
+<textarea rows="20" placeholder="批量添加用逗号隔开……" class="names" id="names"></textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
-<input type="button" value="添&nbsp;&nbsp;加" id="add" class="fr w100 h25 mt10 mr10 bgred" style="border: none; color:#fff"/>
+<input type="button" value="添&nbsp;&nbsp;加" id="add" class="fr w100 h25 mt10 mr10 bgred"
+       style="border: none; color:#fff"/>
 <script type="text/javascript">
     $(function () {
         $(".names").focus();
+
+        var lock = false;
         $("#add").click(function () {
+            if (lock) {
+                return;
+            }
             var names = $.trim($("#names").val());
             if (names == "" || names == " ") {
                 $("#prompt").text("请输入要添加的姓名");
@@ -61,7 +67,7 @@
                     return;
                 }
             }
-
+            lock = true;
             $.post("/name/add.json", {'names': newNames}, function (data) {
                 if (data.result.code == 0) {
                     $("#prompt").text("添加成功" + data.result.t + "个名字");
@@ -70,6 +76,7 @@
                 } else {
                     $("#prompt").text(data.result.detail);
                 }
+                lock = false;
             });
         });
     });

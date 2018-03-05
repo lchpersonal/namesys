@@ -33,14 +33,19 @@
     <span class="mleft30">增加铺垫记录</span>
 </div>
 <h class="f15">请输入铺垫记录：</h>
-<textarea rows="12" placeholder="请输入铺垫记录……" class="pavingReocrd"></textarea>
+<textarea rows="20" placeholder="请输入铺垫记录……" class="pavingReocrd"></textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
 <input type="button" value="添&nbsp;&nbsp;加" id="add" nameinfoid="${id}" class="fr w100 h25 mt10 mr10 bgred" style="border: none; color:#fff"/>
 <script type="text/javascript">
     $(function () {
         $(".pavingReocrd").focus();
 
+        var lock = false;
         $("#add").click(function () {
+            if (lock) {
+                return;
+            }
+            lock = true;
             var record = $(".pavingReocrd").val();
             if (record == "" || $.trim(record) == " ") {
                 $("#prompt").text("铺垫记录不能为空~");
@@ -57,6 +62,7 @@
                 } else {
                     $("#prompt").text(data.result.detail);
                 }
+                lock = false;
             });
 
         });

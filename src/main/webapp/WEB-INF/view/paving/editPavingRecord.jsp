@@ -33,7 +33,7 @@
     <span class="mleft30">编辑铺垫记录</span>
 </div>
 <h class="f15">请修改铺垫记录：</h>
-<textarea rows="12" placeholder="请修改铺垫记录……" class="pavingReocrd">
+<textarea rows="20" placeholder="请修改铺垫记录……" class="pavingReocrd">
 <c:if test="${data.code==0}">${data.t.record}</c:if><c:if test="${data.code!=0}">${data.detail}</c:if>
 </textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>

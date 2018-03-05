@@ -35,7 +35,7 @@
 <h class="f15">请修改互动资料：
     <span class="fr mr10 f12 wordcountwrapper" style="color:red;display: none"><span class="wordcount">0</span>/800</span>
 </h>
-<textarea rows="12" placeholder="请修改互动资料……" class="interactiveRes" onkeyup="checkNumber()">
+<textarea rows="20" placeholder="请修改互动资料……" class="interactiveRes" onkeyup="checkNumber()">
 <c:if test="${result.code==0}">${result.t.info}</c:if><c:if test="${result.code!=0}">${data.detail}</c:if>
 </textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
