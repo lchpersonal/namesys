@@ -64,6 +64,11 @@
             <a href="/jst/paving/pavingRecords"  id="paving" class=' hrefcss2 w200 bgred'>铺垫记录</a>
         </td>
     </tr>
+    <tr>
+        <td align="center">
+            <a href="/jst/klg/klg"  id="klg" class=' hrefcss2 w200 bgred'>行业知识</a>
+        </td>
+    </tr>
     <c:if test="${user.type > 0}">
         <tr>
             <td align="center">
