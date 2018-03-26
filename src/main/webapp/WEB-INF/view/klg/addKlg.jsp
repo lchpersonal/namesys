@@ -36,7 +36,7 @@
 <div class="mb10">
     <input class="width80 title" type="text">
 </div>
-<h class="f15">请输入互动资源：
+<h class="f15">请输入内容：
     <span class="fr mr10 f12" style="color:red"><span class="wordcount">0</span>/65535</span>
 </h>
 <textarea rows="20" placeholder="请输入内容……" class="content" onkeyup="checkNumber()"></textarea>

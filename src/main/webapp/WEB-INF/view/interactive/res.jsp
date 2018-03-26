@@ -121,6 +121,7 @@
                 }
             }
             var maxId = 0;
+            $(".outerDiv").html("");
             getData(maxId, keys);
             $(".loadMore").css("display", "block");
         });

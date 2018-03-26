@@ -91,7 +91,7 @@
                             <p class="f12 p0 mt0 mb0 clearfix" style="color: #888">\
                                 <a href="javascript:void(0);" class="edit fr mr5" infoid="' + obj.id + '">编辑</a>\
                             </p>\
-                            <p class="f15 p0 ps mt0 title" style="font-weight: bold" state="0">' + title + '</p>\
+                            <p class="f15 p0 ps mt0 title" style="font-weight: bold;cursor:pointer;" state="0">' + title + '</p>\
                             <p class="f14 p0 ps displayNone">' + content + '</p>\
                         </div>';
                         }
@@ -123,6 +123,7 @@
                 }
             }
             var maxId = 999999999;
+            $(".outerDiv").html("");
             getData(maxId, keys);
             $(".loadMore").css("display", "block");
         });
