@@ -63,7 +63,6 @@
             var infoid = $(this).attr("infoid");
             $.post("/interactive/edit.json", {'id': infoid, 'info': info}, function (data) {
                 if (data.result.code == 0) {
-                    alert(document.referrer);
                     location.href = document.referrer;
                    // location.reload();
                 } else {
