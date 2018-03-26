@@ -63,8 +63,9 @@
             var infoid = $(this).attr("infoid");
             $.post("/interactive/edit.json", {'id': infoid, 'info': info}, function (data) {
                 if (data.result.code == 0) {
-                    location.href = window.history.back();
-                    location.reload();
+                    alert(document.referrer);
+                    location.href = document.referrer;
+                   // location.reload();
                 } else {
                     $("#prompt").text(data.result.detail);
                 }
