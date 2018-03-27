@@ -91,8 +91,8 @@
                             <p class="f12 p0 mt0 mb0 clearfix" style="color: #888">\
                                 <a href="javascript:void(0);" class="edit fr mr5" infoid="' + obj.id + '">编辑</a>\
                             </p>\
-                            <p class="f15 p0 ps mt0 title" style="font-weight: bold;cursor:pointer;" state="0">' + title + '</p>\
-                            <p class="f14 p0 ps displayNone">' + content + '</p>\
+                            <p class="f16 p0 ps mt0 title" style="font-weight: bold;cursor:pointer;" state="0">' + title + '</p>\
+                            <p class="f16 p0 ps displayNone" style="line-height: 23px;" >' + content + '</p>\
                         </div>';
                         }
                         curId = obj.id;

@@ -32,14 +32,14 @@
     <a href="javascript:history.back();" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">编辑行业知识</span>
 </div>
-<h class="f15">请输入标题：</h>
+<h class="f15">请编辑标题：</h>
 <div class="mb10">
-    <input class="width80 title" type="text" value="${result.t.title}">
+    <input class="width80 title f15" type="text" value="${result.t.title}">
 </div>
-<h class="f15">请输入互动资源：
+<h class="f15">请编辑内容：
     <span class="fr mr10 f12" style="color:red"><span class="wordcount">0</span>/65535</span>
 </h>
-<textarea rows="20" placeholder="请输入内容……" class="content" onkeyup="checkNumber()">${result.t.content}</textarea>
+<textarea rows="20" placeholder="请输入内容……" class="content f16" onkeyup="checkNumber()">${result.t.content}</textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
 <input type="button" value="添&nbsp;&nbsp;加" cid="${result.t.id}" id="add" class="fr w100 h25 mt10 mr10 bgred"
        style="border: none; color:#fff"/>

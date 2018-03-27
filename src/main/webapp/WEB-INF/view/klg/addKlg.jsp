@@ -34,12 +34,12 @@
 </div>
 <h class="f15">请输入标题：</h>
 <div class="mb10">
-    <input class="width80 title" type="text">
+    <input class="width80 title f15" type="text">
 </div>
 <h class="f15">请输入内容：
     <span class="fr mr10 f12" style="color:red"><span class="wordcount">0</span>/65535</span>
 </h>
-<textarea rows="20" placeholder="请输入内容……" class="content" onkeyup="checkNumber()"></textarea>
+<textarea rows="20" placeholder="请输入内容……" class="content f16" onkeyup="checkNumber()"></textarea>
 <span class="fl f12" style="color: red" id="prompt"></span>
 <input type="button" value="添&nbsp;&nbsp;加" id="add" class="fr w100 h25 mt10 mr10 bgred"
        style="border: none; color:#fff"/>
