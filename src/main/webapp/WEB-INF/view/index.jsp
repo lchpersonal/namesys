@@ -36,7 +36,7 @@
 <div style="border-bottom: 2px ridge #b6262f;" class="pb2 mb20">
     <a href="#" onclick="javascript :history.back(-1);" id="back" class="fl f18 m0 p0 dib red tdn">返回</a>
     <span class="mleft30">首页</span>
-    <a href="javascript:void(0);"  id="logout" class="fr f18 m0 p0 dib red tdn">登出</a>
+    <a href="javascript:void(0);" id="logout" class="fr f18 m0 p0 dib red tdn">登出</a>
 </div>
 <table width="100%" align="center" class="mt30">
     <tr>
@@ -51,46 +51,51 @@
     </tr>
     <tr>
         <td align="center">
-            <a href="/name/select"  id="viewname" class=' hrefcss2 w200 bgred'>查看名单</a>
+            <a href="/name/select" id="viewname" class=' hrefcss2 w200 bgred'>查看名单</a>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <a href="/jst/echelon/echelon"  id="echelon" class=' hrefcss2 w200 bgred'>分梯队</a>
+            <a href="/jst/echelon/echelon" id="echelon" class=' hrefcss2 w200 bgred'>分梯队</a>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <a href="/jst/paving/pavingRecords"  id="paving" class=' hrefcss2 w200 bgred'>铺垫记录</a>
+            <a href="/jst/paving/pavingRecords" id="paving" class=' hrefcss2 w200 bgred'>铺垫记录</a>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <a href="/jst/klg/klg"  id="klg" class=' hrefcss2 w200 bgred'>行业知识</a>
+            <a href="/jst/klg/klg" id="klg" class=' hrefcss2 w200 bgred'>行业知识</a>
         </td>
     </tr>
     <c:if test="${user.type > 0}">
         <tr>
             <td align="center">
-                <a href="javascript:alert('此功能暂不开放');"  id="children" class=' hrefcss2 w200 bgred'>伞下主任</a>
+                <a href="/children/list;" id="children" class=' hrefcss2 w200 bgred'>伞下主任</a>
             </td>
         </tr>
         <tr>
             <td align="center">
-                <a href="/jst/interactive/res"  id="interactiveres" class=' hrefcss2 w200 bgred'>互动资源</a>
+                <a href="/jst/interactive_new/res" id="interactiveres" class=' hrefcss2 w200 bgred'>互动资源(新)</a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <a href="/jst/interactive/res" class=' hrefcss2 w200 bgred'>互动资源</a>
             </td>
         </tr>
     </c:if>
     <c:if test="${user.username=='chengli'}">
         <tr>
             <td align="center">
-                <a href="/jst/sys/addUser"  id="addUser" class='hrefcss2 w200 bgred'>添加用户</a>
+                <a href="/jst/sys/addUser" id="addUser" class='hrefcss2 w200 bgred'>添加用户</a>
             </td>
         </tr>
     </c:if>
 </table>
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         $("#logout").click(function () {
             $.post("/logout.json", {}, function (data) {
                 if (data.result.code == 0) {
