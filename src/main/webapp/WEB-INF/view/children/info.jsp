@@ -94,7 +94,7 @@
         <td align="center">${data.t.pavingMonthCount}</td>
     </tr>
 </table>
-<input type="button" class="fr mr10" value="看TA的铺垫记录" username="${childUsername}" id="pavingRecord"/>
+<input type="button" class="fr w150 h25 mt10 mr10 bgred" style="border: none; color:#fff" value="看TA的铺垫记录" username="${childUsername}" id="pavingRecord"/>
 <script type="text/javascript">
     $(function () {
         $("#pavingRecord").click(function () {
