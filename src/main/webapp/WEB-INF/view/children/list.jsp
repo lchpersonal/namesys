@@ -25,7 +25,6 @@
     <span class="mleft30">伞下主任</span>
     <a href="####" id="homepage" class="fr f18 m0 p0 dib red tdn">首页</a>
 </div>
-<hr class="linecss"/>
 <c:if test="${data.code!=0}">
     <span>${data.detail}</span>
 </c:if>

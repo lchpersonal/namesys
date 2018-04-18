@@ -7,7 +7,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
     <base href="<%=basePath%>">
@@ -17,6 +17,7 @@
     <meta name="Description" content=""/>
     <meta name="keywords" content=""/>
     <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/clipboard.min.js"></script>
     <link rel="stylesheet" href="/static/css/core.css"/>
     <style type="text/css">
         table {
@@ -78,6 +79,53 @@
            style="border: none; color:#fff;margin-bottom: 3px"/>
     <input type="button" value="铺垫" id="paving" nameInfoId="${data.t.id}" class="fr w50 h20 bgred mr10"
            style="border: none; color:#fff;margin-bottom: 3px"/>
+    <button class="btn5 fr mr10 bgred h20" style="border: none; color:#fff;margin-bottom: 3px" data-clipboard-text="
+基本信息
+  姓名：${data.t.name}
+  性别：<c:choose><c:when test="${data.t.sex==0}">男</c:when><c:otherwise>女</c:otherwise></c:choose>
+  年龄：${data.t.age}
+  籍贯：${data.t.nativePlace}
+  工作地：${data.t.workplace}
+  健康状况：${data.t.health}
+  文化程度：${data.t.education}
+  体貌特征：${data.t.characteristics}
+
+与我的关系
+  关系：${data.t.relationship}
+  相处模式：${data.t.coexistenceMode}
+  对我评价：${data.t.evaluateMe}
+
+工作情况
+  工作经历：${data.t.workExperience}
+  人生阅历：${data.t.lifeExperience}
+  收入情况：${data.t.income}
+  经商创业：${data.t.entrepreneurship}
+  休假情况：${data.t.vacations}
+
+情感婚姻状况
+  婚姻状况：${data.t.maritalStatus}
+
+家庭情况：
+  家庭成员：${data.t.memberOfFamily}
+  家庭地位：${data.t.familyStatus}
+  收入支出：${data.t.familyIncomeAndSupport}
+个人性格
+  性格特点：${data.t.character}
+  政策关注：${data.t.policyConcern}
+  兴趣爱好：${data.t.hobby}
+  特长：${data.t.specialty}
+  喜欢话题：${data.t.topicOfLike}
+  有无梦想：${data.t.dream}
+  思想观念：${data.t.concept}
+  喜爱读书：${data.t.loveReading}
+
+邀约理由
+  ${data.t.reasonOfInvite}
+
+其他
+  ${data.t.others}
+">复制文本</button>
+
     <table width="100%" class="t">
         <tr class="a1">
             <td class="tdl">姓&nbsp;&nbsp;名</td>
@@ -224,6 +272,10 @@
     <input type="text" value="${data.t.id}" id="id" disabled hidden/>
 </c:if>
 <span id="wordcountWrapper" class="f12 red" style="display: none;position: absolute"></span>
+<div class="alertBkDiv" >
+</div>
+<div class="alertdiv bgred" style="opacity: 0.8; color:#fff">
+</div>
 
 <script type="text/javascript">
 
@@ -233,6 +285,19 @@
         "maritalStatus", "memberOfFamily", "familyStatus", "familyIncomeAndSupport",
         "character", "policyConcern", "hobby", "specialty", "topicOfLike", "dream",
         "concept", "loveReading", "reasonOfInvite", "others"];
+
+
+    $(document).ready(function(){
+        var clipboard = new ClipboardJS('.btn5');//实例化
+        //复制成功执行的回调，可选
+        clipboard.on('success', function(e) {
+            showMsg("复制成功");
+        });
+        //复制失败执行的回调，可选
+        clipboard.on('error', function(e) {
+            showMsg("复制失败");
+        });
+    })
 
     var attrEle = {
         name: {name: '姓名', len: 10},
@@ -337,6 +402,16 @@
             $("#wordcountWrapper").css({"top": top + h + 9, "right": 12, "display": "block"});
         }
     });
+
+    function showMsg(msg) {
+        $(".alertdiv").text(msg);
+        $(".alertBkDiv").show();
+        $(".alertdiv").fadeIn();
+        setTimeout(function () {
+            $(".alertdiv").fadeOut();
+            $(".alertBkDiv").fadeOut();
+        }, 1200);
+    }
 </script>
 </body>
 </html>
