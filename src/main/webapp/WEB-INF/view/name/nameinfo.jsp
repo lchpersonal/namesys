@@ -293,9 +293,9 @@
         clipboard.on('success', function(e) {
             showMsg("复制成功");
         });
-        //复制失败执行的回调，可选
+        //苹果手机虽然执行失败的回掉函数，但是实际上是复制成功的。
         clipboard.on('error', function(e) {
-            showMsg("复制失败");
+            showMsg("复制成功");
         });
     })
 

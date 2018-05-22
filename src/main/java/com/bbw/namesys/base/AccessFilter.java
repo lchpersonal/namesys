@@ -15,7 +15,7 @@ public class AccessFilter implements Filter {
     private final static Logger Log = LoggerFactory.getLogger(AccessFilter.class);
 
 
-    private static final Pattern LoginCheckWhiteList = Pattern.compile("(/login|/doLogin.json|/password|/logout|/error|/noprivilege|/static|/debug)");
+    private static final Pattern LoginCheckWhiteList = Pattern.compile("(/login|/love.html|/doLogin.json|/password|/logout|/error|/noprivilege|/static|/debug)");
 
     @Override
     public void init(FilterConfig filterConfig) {
